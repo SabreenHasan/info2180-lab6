@@ -1,0 +1,50 @@
+button {
+	width: 60px;
+	height: 30px;
+	border-radius: 5px;
+}
+
+form {
+	font-family: Arial, Sans serif;
+}
+
+h3 {
+	text-transform: uppercase;
+	font-family: Cambria Math, Sans serif;
+}
+
+header > #heading > h1 {
+	color: white;
+	text-transform: uppercase;
+	font-family: Cambria Math, Sans serif;
+	align-items: center;
+}
+
+#heading {
+	background-color: #cc66ff;
+	text-align: center;
+	height: 50px;
+	/*display: flex;*/
+}
+
+input {
+	font-family: Arial, Sans serif;
+	border-radius: 5px;
+	width: 350px;
+	height: 30px;
+}
+
+#mainContent {
+	background-color:  #ffffcc;
+	font-family: Cambria Math, Sans serif;
+	padding-left: 3em;
+	padding-right: 3em;
+	display: flex;
+	flex-direction: column;
+}
+
+.alert {
+	color:  #ff0000;
+	text-transform: uppercase;
+	font-family: Impact;
+}
