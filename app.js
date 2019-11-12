@@ -1,18 +1,16 @@
 window.onload = function () {
 	var searchButton = document.getElementById("searchButton");
-	var textField = document.getElementById("searchField").value;
 	var xhttp; 
 	
 	searchButton.addEventListener("click", function buttonClick(e) {
 		e.preventDefault();
-		xhttp = new XMLHttpRequest()
+		xhttp = new XMLHttpRequest();
+		var textField = document.getElementById("searchField").value;
 
 		var url = "superheroes.php?query=" + textField;
-		if (textField.length === 0) {
-			xhttp.onreadystatechange = loadDoc;
-			xhttp.open("GET", url);
-			xhttp.send();
-		}		
+		xhttp.onreadystatechange = loadDoc;
+		xhttp.open("GET", url);
+		xhttp.send();	
 	});
 
 
@@ -22,6 +20,7 @@ window.onload = function () {
 			if(xhttp.status === 200) 
 			{
 				var retrievedInfo = xhttp.responseText;
+				var textField = document.getElementById("searchField").value;
 				alert(retrievedInfo);		
 			}
 			else {
