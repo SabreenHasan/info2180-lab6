@@ -65,6 +65,41 @@ $superheroes = [
 
 ?>
 
+<?php $input = $_GET["textField"]?>
+<?php $state = "";?>
+
+<?php if($input === "") {
+        allSuperheroes($superheroes, $superhero);
+}
+else {
+  foreach ($superheroes as $superhero): 
+    if ($input === $superhero["alias"] || $input === $superhero["name"]) {?>
+      <?php $state = "found";?>
+      <br>
+      <h3><?=$superhero["alias"];?></h3>
+      <h4>A.K.A. <?=$superhero["name"];?></h4>
+      <br>
+      <p><?= $superhero["biography"];?></p>
+<?php}
+  endforeach;
+    }
+    if ($input !== "" && $state !== "found") { ?>
+      <br>
+      <h3>superhero not found!</h3>
+<?php }
+?>
+
+
+<?php function allSuperheroes($arr, $key) {?>
+  <ul>
+  <?php foreach ($arr as $key):  ?>
+      <li><?$key["alias"]; ?></li>
+  <?php endforeach; ?>
+  </ul>
+<?php }
+?>
+
+
 <ul>
 <?php foreach ($superheroes as $superhero): ?>
   <li><?= $superhero['alias']; ?></li>

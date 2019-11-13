@@ -7,9 +7,9 @@ window.onload = function () {
 		xhttp = new XMLHttpRequest();
 		var textField = document.getElementById("searchField").value;
 
-		var url = "superheroes.php?query=" + textField;
+		var url = "http://localhost:8080/superheroes.php?query=" + textField;
 		xhttp.onreadystatechange = loadDoc;
-		xhttp.open("GET", url);
+		xhttp.open("GET", url, true);
 		xhttp.send();	
 	});
 
@@ -20,11 +20,11 @@ window.onload = function () {
 			if(xhttp.status === 200) 
 			{
 				var retrievedInfo = xhttp.responseText;
-				var textField = document.getElementById("searchField").value;
-				alert(retrievedInfo);		
+				var textField = filter_var(document.getElementById("searchField").value, FILTER_SANITIZE_ENCODED);
+				document.getElementById("result").toggleClass("alert").innerHTML = retrievedInfo;		
 			}
 			else {
-				alert("ERROR!");
+				alert("File not found");
 			}
 		}
 	}
